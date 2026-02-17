@@ -23,7 +23,8 @@ body { font-family: 'Inter', sans-serif; }
 
   <!-- Logo -->
   <div class="flex justify-center mb-20">
-    <img src="LogoBethel.jpeg" class="h-24 object-contain opacity-90">
+    <img src="LogoBethel.jpeg"
+         class="h-20 w-auto object-contain mx-auto grayscale brightness-110 contrast-110 opacity-90">
   </div>
 
   <!-- Hero -->
@@ -42,17 +43,28 @@ body { font-family: 'Inter', sans-serif; }
 
   </div>
 
-  <!-- Beneficios -->
-  <div class="mt-20 max-w-2xl mx-auto space-y-6 text-neutral-300 text-lg leading-relaxed">
+  <!-- Lista de beneficios -->
+  <ul class="mt-24 max-w-2xl mx-auto space-y-6 text-neutral-300 text-lg leading-relaxed">
+    
+    <li class="flex items-start gap-4">
+      <span class="w-2 h-2 bg-red-600 mt-3"></span>
+      <span>Reflexiones prácticas</span>
+    </li>
 
-    <p>Reflexiones prácticas</p>
-    <p>Sabiduría para dirigir en tiempos complejos</p>
-    <p>Inspiración en menos de 3 minutos al día</p>
+    <li class="flex items-start gap-4">
+      <span class="w-2 h-2 bg-red-600 mt-3"></span>
+      <span>Sabiduría para dirigir en tiempos complejos</span>
+    </li>
 
-  </div>
+    <li class="flex items-start gap-4">
+      <span class="w-2 h-2 bg-red-600 mt-3"></span>
+      <span>Inspiración en menos de 3 minutos al día</span>
+    </li>
+
+  </ul>
 
   <!-- Declaración -->
-  <div class="mt-24 text-center max-w-2xl mx-auto">
+  <div class="mt-28 text-center max-w-2xl mx-auto">
     <p class="heading text-3xl text-neutral-200 italic">
       Aprenda cada día del Director más alto: Jesucristo.
     </p>
@@ -74,7 +86,7 @@ body { font-family: 'Inter', sans-serif; }
   </div>
 
   <!-- Formulario -->
-  <form id="form" class="mt-28 max-w-md mx-auto space-y-6 hidden">
+  <form id="form" class="mt-28 max-w-md mx-auto space-y-8 hidden">
 
     <input type="text" name="nombre" placeholder="Nombre completo"
       class="w-full p-4 bg-transparent border-b border-neutral-700 focus:outline-none focus:border-red-600 transition"
