@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devocional Diario | Bethel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white flex items-center justify-center min-h-screen">
+
+<div class="max-w-xl w-full p-8 text-center">
+
+  <h1 class="text-3xl font-bold mb-6">
+    ¿Te gustaría recibir un devocional diario?
+  </h1>
+
+  <div id="decision" class="space-x-4">
+    <button onclick="mostrarFormulario()"
+      class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded font-bold">
+      Sí, quiero recibirlo
+    </button>
+
+    <button onclick="mostrarGracias()"
+      class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded">
+      No, gracias
+    </button>
+  </div>
+
+  <form id="form" class="space-y-4 mt-8 hidden">
+
+    <input type="text" name="nombre" placeholder="Nombre"
+      class="w-full p-3 rounded bg-gray-800" required />
+
+    <input type="text" name="centro" placeholder="Centro Educativo"
+      class="w-full p-3 rounded bg-gray-800" />
+
+    <input type="tel" name="whatsapp" placeholder="Número de WhatsApp"
+      class="w-full p-3 rounded bg-gray-800" required />
+
+    <button type="submit"
+      class="w-full bg-red-600 hover:bg-red-700 p-3 rounded font-bold">
+      Enviar
+    </button>
+
+  </form>
+
+  <p id="mensaje" class="mt-6 text-green-400 hidden"></p>
+
+</div>
+
+<script>
+const form = document.getElementById("form");
+const mensaje = document.getElementById("mensaje");
+const decision = document.getElementById("decision");
+
+function mostrarFormulario() {
+  decision.classList.add("hidden");
+  form.classList.remove("hidden");
+}
+
+function mostrarGracias() {
+  decision.classList.add("hidden");
+  mensaje.innerText = "Gracias por visitarnos 💛";
+  mensaje.classList.remove("hidden");
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  await fetch("https://script.google.com/macros/s/AKfycbwAXwtzhn8A_TxseUEGEJe_L5vcrp33dMkTZ3eFAwhbsUsSf1MyEfZji2-V1OphnokL7Q/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  form.classList.add("hidden");
+  mensaje.innerText = "🎉 ¡Registro exitoso! Muy pronto recibirás tu devocional.";
+  mensaje.classList.remove("hidden");
+});
+</script>
+
+</body>
+</html>
