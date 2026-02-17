@@ -8,80 +8,94 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 body { font-family: 'Inter', sans-serif; }
+.heading { font-family: 'Playfair Display', serif; }
 </style>
 
 </head>
 
-<body class="bg-gradient-to-br from-black via-neutral-900 to-black text-white min-h-screen flex items-center justify-center px-6">
+<body class="bg-black text-white min-h-screen">
 
-<div class="w-full max-w-lg">
+<div class="max-w-5xl mx-auto px-6 py-24">
 
-  <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-2xl transition-all duration-500">
+  <!-- Logo -->
+  <div class="flex justify-center mb-20">
+    <img src="LogoBethel.jpeg" class="h-24 object-contain opacity-90">
+  </div>
 
-    <!-- Logo -->
-    <div class="flex justify-center mb-10">
-      <img src="LogoBethel.jpeg" class="h-24 object-contain">
-    </div>
+  <!-- Hero -->
+  <div class="text-center max-w-3xl mx-auto">
 
-    <!-- Título -->
-    <h1 class="text-3xl font-semibold text-center leading-snug tracking-tight">
+    <h1 class="heading text-6xl leading-tight tracking-tight">
       Devocional Diario
     </h1>
 
-    <p class="text-neutral-400 text-center mt-3 text-sm">
-      Reflexiones breves para fortalecer tu carácter y tus decisiones.
+    <div class="w-16 h-px bg-red-600 mx-auto my-10 opacity-70"></div>
+
+    <p class="text-neutral-400 text-xl leading-relaxed">
+      Reciba un devocional diario con principios bíblicos aplicados
+      a la vida diaria, toma de decisiones y formación de carácter.
     </p>
 
-    <!-- Botones -->
-    <div id="decision" class="mt-10 space-y-4">
+  </div>
 
-      <button onclick="mostrarFormulario()"
-        class="w-full bg-red-600 hover:bg-red-700 transition-all duration-300 py-3 rounded-xl font-medium">
-        Deseo recibirlo
-      </button>
+  <!-- Beneficios -->
+  <div class="mt-20 max-w-2xl mx-auto space-y-6 text-neutral-300 text-lg leading-relaxed">
 
-      <a href="gracias.html"
-        class="block w-full text-center bg-neutral-800 hover:bg-neutral-700 transition-all duration-300 py-3 rounded-xl font-medium">
-        No, gracias
-      </a>
+    <p>Reflexiones prácticas</p>
+    <p>Sabiduría para dirigir en tiempos complejos</p>
+    <p>Inspiración en menos de 3 minutos al día</p>
 
-    </div>
+  </div>
 
-    <!-- Formulario -->
-    <form id="form" class="mt-10 space-y-5 hidden">
+  <!-- Declaración -->
+  <div class="mt-24 text-center max-w-2xl mx-auto">
+    <p class="heading text-3xl text-neutral-200 italic">
+      Aprenda cada día del Director más alto: Jesucristo.
+    </p>
+  </div>
 
-      <div>
-        <input type="text" name="nombre" placeholder="Nombre completo"
-          class="w-full p-3 rounded-xl bg-neutral-800 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-red-600 transition"
-          required />
-      </div>
+  <!-- CTA -->
+  <div id="decision" class="mt-28 text-center max-w-md mx-auto">
 
-      <div>
-        <input type="text" name="centro" placeholder="Centro educativo"
-          class="w-full p-3 rounded-xl bg-neutral-800 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-red-600 transition" />
-      </div>
+    <button onclick="mostrarFormulario()"
+      class="w-full bg-red-600 hover:bg-red-700 transition-all duration-300 py-4 rounded-sm text-lg tracking-wide">
+      Deseo recibirlo
+    </button>
 
-      <div>
-        <input type="tel" name="whatsapp" placeholder="Número de WhatsApp"
-          class="w-full p-3 rounded-xl bg-neutral-800 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-red-600 transition"
-          required />
-      </div>
+    <a href="gracias.html"
+       class="block mt-8 text-neutral-500 hover:text-white transition-colors duration-300 text-sm tracking-wide">
+       No, gracias
+    </a>
 
-      <button type="submit"
-        class="w-full bg-red-600 hover:bg-red-700 transition-all duration-300 py-3 rounded-xl font-medium">
-        Enviar información
-      </button>
+  </div>
 
-    </form>
+  <!-- Formulario -->
+  <form id="form" class="mt-28 max-w-md mx-auto space-y-6 hidden">
 
-    <div id="mensaje" class="mt-8 text-center text-neutral-300 hidden">
-      Tu información ha sido registrada correctamente.
-    </div>
+    <input type="text" name="nombre" placeholder="Nombre completo"
+      class="w-full p-4 bg-transparent border-b border-neutral-700 focus:outline-none focus:border-red-600 transition"
+      required />
 
+    <input type="text" name="centro" placeholder="Centro educativo"
+      class="w-full p-4 bg-transparent border-b border-neutral-700 focus:outline-none focus:border-red-600 transition" />
+
+    <input type="tel" name="whatsapp" placeholder="Número de WhatsApp"
+      class="w-full p-4 bg-transparent border-b border-neutral-700 focus:outline-none focus:border-red-600 transition"
+      required />
+
+    <button type="submit"
+      class="w-full bg-red-600 hover:bg-red-700 transition-all duration-300 py-4 rounded-sm text-lg tracking-wide">
+      Enviar información
+    </button>
+
+  </form>
+
+  <div id="mensaje" class="mt-20 text-center text-neutral-300 hidden text-lg">
+    Tu información ha sido registrada correctamente.
   </div>
 
 </div>
@@ -95,6 +109,7 @@ const decision = document.getElementById("decision");
 function mostrarFormulario() {
   decision.classList.add("hidden");
   form.classList.remove("hidden");
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 }
 
 form.addEventListener("submit", async (e) => {
