@@ -1,55 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Devocional Diario | Bethel</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Devocional Diario | Bethel</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
 </head>
 
-<body class="bg-black text-white flex items-center justify-center min-h-screen">
+<body class="bg-gradient-to-br from-black via-gray-900 to-black text-white min-h-screen flex items-center justify-center px-4">
 
-<div class="max-w-xl w-full p-8 text-center">
+<div class="w-full max-w-md">
 
-  <h1 class="text-3xl font-bold mb-6">
-    ¿Te gustaría recibir un devocional diario?
-  </h1>
+  <!-- Card -->
+  <div class="bg-white/5 backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-white/10 transition-all duration-500">
 
-  <div id="decision" class="space-x-4">
-    <button onclick="mostrarFormulario()"
-      class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded font-bold">
-      Sí, quiero recibirlo
-    </button>
+    <!-- Logo -->
+    <div class="flex justify-center mb-6">
+      <img src="LOGO_URL_AQUI" class="h-20 object-contain" />
+    </div>
 
-    <button onclick="mostrarGracias()"
-      class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded">
-      No, gracias
-    </button>
+    <!-- Título -->
+    <h1 class="text-2xl font-bold text-center mb-4">
+      ¿Te gustaría recibir un devocional diario?
+    </h1>
+
+    <p class="text-gray-300 text-center mb-8 text-sm">
+      Inspiración práctica en menos de 3 minutos al día.
+    </p>
+
+    <!-- Decisión -->
+    <div id="decision" class="space-y-4 fade-in">
+
+      <button onclick="mostrarFormulario()"
+        class="w-full bg-red-600 hover:bg-red-700 transition-all duration-300 py-3 rounded-xl font-semibold">
+        Sí, quiero recibirlo
+      </button>
+
+      <button onclick="mostrarGracias()"
+        class="w-full bg-gray-800 hover:bg-gray-700 transition-all duration-300 py-3 rounded-xl">
+        No, gracias
+      </button>
+
+    </div>
+
+    <!-- Formulario -->
+    <form id="form" class="space-y-4 mt-6 hidden">
+
+      <input type="text" name="nombre" placeholder="Nombre"
+        class="w-full p-3 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
+        required />
+
+      <input type="text" name="centro" placeholder="Centro Educativo"
+        class="w-full p-3 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition" />
+
+      <input type="tel" name="whatsapp" placeholder="Número de WhatsApp"
+        class="w-full p-3 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
+        required />
+
+      <button type="submit"
+        class="w-full bg-red-600 hover:bg-red-700 transition-all duration-300 py-3 rounded-xl font-semibold">
+        Enviar
+      </button>
+
+    </form>
+
+    <!-- Mensaje -->
+    <p id="mensaje" class="mt-6 text-center text-green-400 hidden fade-in"></p>
+
   </div>
-
-  <form id="form" class="space-y-4 mt-8 hidden">
-
-    <input type="text" name="nombre" placeholder="Nombre"
-      class="w-full p-3 rounded bg-gray-800" required />
-
-    <input type="text" name="centro" placeholder="Centro Educativo"
-      class="w-full p-3 rounded bg-gray-800" />
-
-    <input type="tel" name="whatsapp" placeholder="Número de WhatsApp"
-      class="w-full p-3 rounded bg-gray-800" required />
-
-    <button type="submit"
-      class="w-full bg-red-600 hover:bg-red-700 p-3 rounded font-bold">
-      Enviar
-    </button>
-
-  </form>
-
-  <p id="mensaje" class="mt-6 text-green-400 hidden"></p>
-
 </div>
 
 <script>
+
 const form = document.getElementById("form");
 const mensaje = document.getElementById("mensaje");
 const decision = document.getElementById("decision");
@@ -57,6 +91,7 @@ const decision = document.getElementById("decision");
 function mostrarFormulario() {
   decision.classList.add("hidden");
   form.classList.remove("hidden");
+  form.classList.add("fade-in");
 }
 
 function mostrarGracias() {
@@ -83,6 +118,7 @@ form.addEventListener("submit", async (e) => {
   mensaje.innerText = "🎉 ¡Registro exitoso! Muy pronto recibirás tu devocional.";
   mensaje.classList.remove("hidden");
 });
+
 </script>
 
 </body>
