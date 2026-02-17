@@ -120,9 +120,9 @@ body { font-family: 'Inter', sans-serif; }
 
 </div>
 
-<script>
+  <script>
+
 const form = document.getElementById("form");
-const mensaje = document.getElementById("mensaje");
 const decision = document.getElementById("decision");
 
 function mostrarFormulario() {
@@ -133,19 +133,32 @@ function mostrarFormulario() {
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  const button = form.querySelector("button");
+  button.disabled = true;
+  button.innerText = "Enviando...";
+
   const data = Object.fromEntries(new FormData(form).entries());
 
-  await fetch("https://script.google.com/macros/s/AKfycbwAXwtzhn8A_TxseUEGEJe_L5vcrp33dMkTZ3eFAwhbsUsSf1MyEfZji2-V1OphnokL7Q/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbwAXwtzhn8A_TxseUEGEJe_L5vcrp33dMkTZ3eFAwhbsUsSf1MyEfZji2-V1OphnokL7Q/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
 
-  form.classList.add("hidden");
-  mensaje.classList.remove("hidden");
+    window.location.href = "confirmacion.html";
+
+  } catch (error) {
+    button.disabled = false;
+    button.innerText = "Enviar información";
+  }
+
 });
+
 </script>
+
 
 </body>
 </html>
